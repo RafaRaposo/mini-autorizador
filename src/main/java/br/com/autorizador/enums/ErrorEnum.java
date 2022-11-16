@@ -2,15 +2,12 @@ package br.com.autorizador.enums;
 
 public enum ErrorEnum {
 	
-	CARTAO_EXISTENTE("Cartão Existente");
+	CARTAO_EXISTENTE,
+	CARTAO_INEXISTENTE,
+	TRANSACAO_CARTAO_INEXISTENTE,
+	SENHA_INVALIDA,
+	CARTAO_EXPIRADO,
+	SALDO_INSUFICIENTE,
+	OK;
 	
-	private String erro;
-	
-	private ErrorEnum(String erro) {
-		this.erro = erro;
-	}
-	
-	public String getErro() {
-		return erro;
-	}
 }

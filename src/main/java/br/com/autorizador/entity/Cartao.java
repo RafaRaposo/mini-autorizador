@@ -34,6 +34,10 @@ public class Cartao {
 	
 	private BigDecimal saldo;
 
+	public Cartao() {
+
+	}
+	
 	public Cartao(Long numeroCartao, Integer senha) {
 		this.numeroCartao = numeroCartao;
 		this.senha = senha;
