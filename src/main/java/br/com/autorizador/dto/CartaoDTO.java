@@ -14,7 +14,7 @@ public class CartaoDTO implements Serializable {
 	private Long numeroCartao;
 	
 	@NotNull
-	private int senha;
+	private Integer senha;
 
 	public CartaoDTO() {
 		
@@ -33,11 +33,11 @@ public class CartaoDTO implements Serializable {
 		this.numeroCartao = numeroCartao;
 	}
 
-	public int getSenha() {
+	public Integer getSenha() {
 		return senha;
 	}
 
-	public void setSenha(int senha) {
+	public void setSenha(Integer senha) {
 		this.senha = senha;
 	}
 

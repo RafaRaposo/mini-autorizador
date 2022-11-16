@@ -37,7 +37,7 @@ public class TransacaoService {
 	private ErrorEnum verificarValidadeCartao(Cartao cartao, TransacaoDTO transacao) {
 		return LocalDate.now().isAfter(cartao.getDataValidade())
 				? (ErrorEnum) handleException.retornaException(ErrorEnum.CARTAO_EXPIRADO, null)
-				: validarSaldo(cartao, transacao);
+				: validarSaldo(cartao, transacao); 
 	}
 
 	private ErrorEnum validarSaldo(Cartao cartao, TransacaoDTO transacao) {
