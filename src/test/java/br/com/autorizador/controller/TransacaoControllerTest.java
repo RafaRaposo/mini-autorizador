@@ -28,6 +28,8 @@ public class TransacaoControllerTest {
 
 	@MockBean
 	private TransacaoService transacaoService;
+	
+	private static final String URL = "/transacoes";
 
 	@Test
 	public void realizarTransacao() throws Exception {
@@ -36,7 +38,7 @@ public class TransacaoControllerTest {
 		transacao.setSenha(1234);
 		transacao.setValor(new BigDecimal("10"));
 
-		mockMvc.perform(post("/transacoes")
+		mockMvc.perform(post(URL)
 				.contentType(MediaType.APPLICATION_JSON_VALUE)
 				.content(objectMapper.writeValueAsString(transacao)))
 		.andExpect(status().isCreated());
@@ -48,7 +50,7 @@ public class TransacaoControllerTest {
 		transacao.setSenha(1234);
 		transacao.setValor(new BigDecimal("10"));
 
-		mockMvc.perform(post("/transacoes")
+		mockMvc.perform(post(URL)
 				.contentType(MediaType.APPLICATION_JSON_VALUE)
 				.content(objectMapper.writeValueAsString(transacao)))
 		.andExpect(status().isBadRequest());
@@ -60,7 +62,7 @@ public class TransacaoControllerTest {
 		transacao.setNumeroCartao(1234567l);
 		transacao.setValor(new BigDecimal("10"));
 
-		mockMvc.perform(post("/transacoes")
+		mockMvc.perform(post(URL)
 				.contentType(MediaType.APPLICATION_JSON_VALUE)
 				.content(objectMapper.writeValueAsString(transacao)))
 		.andExpect(status().isBadRequest());
@@ -72,7 +74,7 @@ public class TransacaoControllerTest {
 		transacao.setNumeroCartao(1234567l);
 		transacao.setSenha(1234);
 
-		mockMvc.perform(post("/transacoes")
+		mockMvc.perform(post(URL)
 				.contentType(MediaType.APPLICATION_JSON_VALUE)
 				.content(objectMapper.writeValueAsString(transacao)))
 		.andExpect(status().isBadRequest());

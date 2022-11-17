@@ -27,6 +27,8 @@ public class CartaoControllerTest {
 
 	@MockBean
 	private CartaoService cartaoService;
+	
+	private static final String URL = "/cartoes";
 
 	@Test
 	public void criarCartao() throws Exception {
@@ -34,7 +36,7 @@ public class CartaoControllerTest {
 		cartao.setNumeroCartao(1234567l);
 		cartao.setSenha(1234);
 
-		mockMvc.perform(post("/cartoes")
+		mockMvc.perform(post(URL)
 				.contentType(MediaType.APPLICATION_JSON_VALUE)
 				.content(objectMapper.writeValueAsString(cartao)))
 		.andExpect(status().isCreated());
@@ -45,7 +47,7 @@ public class CartaoControllerTest {
 		CartaoDTO cartao = new CartaoDTO();
 		cartao.setSenha(1234);
 
-		mockMvc.perform(post("/cartoes")
+		mockMvc.perform(post(URL)
 				.contentType(MediaType.APPLICATION_JSON_VALUE)
 				.content(objectMapper.writeValueAsString(cartao)))
 		.andExpect(status().isBadRequest());
@@ -56,7 +58,7 @@ public class CartaoControllerTest {
 		CartaoDTO cartao = new CartaoDTO();
 		cartao.setNumeroCartao(1234567l);
 
-		mockMvc.perform(post("/cartoes")
+		mockMvc.perform(post(URL)
 				.contentType(MediaType.APPLICATION_JSON_VALUE)
 				.content(objectMapper.writeValueAsString(cartao)))
 		.andExpect(status().isBadRequest());
@@ -64,7 +66,7 @@ public class CartaoControllerTest {
 	
 	@Test
 	public void obterSaldo() throws Exception {
-		mockMvc.perform(get("/cartoes/1234567"))
+		mockMvc.perform(get(URL + "/1234567"))
 		.andExpect(status().isOk());
 	}
 
