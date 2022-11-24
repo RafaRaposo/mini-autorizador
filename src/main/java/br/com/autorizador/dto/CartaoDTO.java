@@ -5,14 +5,19 @@ import java.io.Serializable;
 import javax.validation.constraints.NotNull;
 
 import br.com.autorizador.entity.Cartao;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
+@ApiModel(value = "Cartao DTO")
 public class CartaoDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+	@ApiModelProperty(value = "Numero do cartao")
 	@NotNull
 	private Long numeroCartao;
 	
+	@ApiModelProperty(value = "Senha do cartao")
 	@NotNull
 	private Integer senha;
 
